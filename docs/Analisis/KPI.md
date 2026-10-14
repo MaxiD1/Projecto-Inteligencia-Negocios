@@ -25,3 +25,11 @@ $$
 $$
 \text{\% de Impacto} = \left(\frac{\sum \text{Descuentos Aplicados}}{\sum (\text{Cantiad} \cdot \text{Precio Unitario})}\right) \cdot 100
 $$
+
+### 4. MoM - Month-over-Month (Crecimiento de Ventas Mensual)
+- **Qué mide:** tasa de variación porcentual de los ingresos de un mes respecto al mes anterior.
+- **Objetivo de Negocio:** Monitorear la salud general del crecimiento de la empresa e identificar patrones estacionales.
+- **Fórmula:**
+$$
+\text{Crecimiento MoM} = \left(\frac{\text{Ingresos Mes Actual} - \text{Ingresos Mes Anterior}}{\text{Ingresos Mes Anterior}}\right) \cdot 100
+$$
