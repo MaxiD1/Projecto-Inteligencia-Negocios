@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{A011B7D7-981A-45E3-9869-B72F8FD61310}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{CE57F74C-7CDF-4195-ADCD-6AAD0161098A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2088,7 +2088,7 @@ LEFT JOIN cargos c ON e.cargo_id = c.cargo_id</property>
        d.precio_unitario,
        d.descuento,
        d.cantidad * d.precio_unitario AS monto_bruto,
-       d.cantidad * d.precio_unitario * (1 - d.descuento) AS monto_neto
+       d.cantidad * d.precio_unitario - d.descuento AS monto_neto
 FROM detalle_ventas d
 INNER JOIN ventas v ON d.venta_id = v.venta_id</property>
                 <property
@@ -2293,7 +2293,7 @@ INNER JOIN ventas v ON d.venta_id = v.venta_id</property>
                       refId="Package\H_VENTAS\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[monto_neto]"
                       dataType="numeric"
                       name="monto_neto"
-                      precision="17"
+                      precision="13"
                       scale="2" />
                   </externalMetadataColumns>
                 </output>
@@ -2365,7 +2365,7 @@ INNER JOIN ventas v ON d.venta_id = v.venta_id</property>
                       dataType="numeric"
                       lineageId="Package\H_VENTAS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[monto_neto]"
                       name="monto_neto"
-                      precision="17"
+                      precision="13"
                       scale="2" />
                     <outputColumn
                       refId="Package\H_VENTAS\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -2463,17 +2463,21 @@ INNER JOIN ventas v ON d.venta_id = v.venta_id</property>
           Id="Package\BORRAR DATOS DESTINO"
           TopLeft="658.675237835277,11.2293905082748" />
         <NodeLayout
-          Size="154.4,44"
-          Id="Package\D_PRODUCTO"
-          TopLeft="646.239339943234,175.663079735254" />
-        <NodeLayout
           Size="137.6,41.6"
           Id="Package\D_CLIENTE"
           TopLeft="494.786342934979,180.275982890105" />
         <NodeLayout
+          Size="154.4,44"
+          Id="Package\D_PRODUCTO"
+          TopLeft="646.239339943234,175.663079735254" />
+        <NodeLayout
           Size="151.2,41.6"
           Id="Package\D_SUCURSAL"
           TopLeft="329.743601838512,182.55913697685" />
+        <NodeLayout
+          Size="133.6,41.6"
+          Id="Package\D_TIEMPO"
+          TopLeft="813.675243520644,173.286735685785" />
         <NodeLayout
           Size="153.6,41.6"
           Id="Package\D_VENDEDOR"
@@ -2482,36 +2486,32 @@ INNER JOIN ventas v ON d.venta_id = v.venta_id</property>
           Size="135.2,41.6"
           Id="Package\H_VENTAS"
           TopLeft="24.9572658726921,190.573473771138" />
-        <NodeLayout
-          Size="133.6,41.6"
-          Id="Package\D_TIEMPO"
-          TopLeft="813.675243520644,173.286735685785" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 5]"
-          TopLeft="766.675237835277,52.8293905082748">
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="859.54191018731,173.286735685785">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="113.800005685367,120.45734517751"
+              EndConnector="-111.702570244076,2.37634404946897"
               Start="0,0"
-              End="113.800005685367,112.95734517751">
+              End="-111.702570244076,-5.12365595053103">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,56.2286725887551" />
+                    End="0,-18.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,56.2286725887551"
-                    Point2="0,60.2286725887551"
-                    Point3="4,60.2286725887551" />
+                    Point1="0,-18.5"
+                    Point2="0,-22.5"
+                    Point3="-4,-22.5" />
                   <mssgle:LineSegment
-                    End="109.800005685367,60.2286725887551" />
+                    End="-107.702570244076,-22.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="109.800005685367,60.2286725887551"
-                    Point2="113.800005685367,60.2286725887551"
-                    Point3="113.800005685367,64.2286725887551" />
+                    Point1="-107.702570244076,-22.5"
+                    Point2="-111.702570244076,-22.5"
+                    Point3="-111.702570244076,-18.5" />
                   <mssgle:LineSegment
-                    End="113.800005685367,112.95734517751" />
+                    End="-111.702570244076,-5.12365595053103" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2657,31 +2657,31 @@ INNER JOIN ventas v ON d.venta_id = v.venta_id</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="859.54191018731,173.286735685785">
+          Id="Package.PrecedenceConstraints[Restricción 5]"
+          TopLeft="766.675237835277,52.8293905082748">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-111.702570244076,2.37634404946897"
+              EndConnector="113.800005685367,120.45734517751"
               Start="0,0"
-              End="-111.702570244076,-5.12365595053103">
+              End="113.800005685367,112.95734517751">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-18.5" />
+                    End="0,56.2286725887551" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-18.5"
-                    Point2="0,-22.5"
-                    Point3="-4,-22.5" />
+                    Point1="0,56.2286725887551"
+                    Point2="0,60.2286725887551"
+                    Point3="4,60.2286725887551" />
                   <mssgle:LineSegment
-                    End="-107.702570244076,-22.5" />
+                    End="109.800005685367,60.2286725887551" />
                   <mssgle:CubicBezierSegment
-                    Point1="-107.702570244076,-22.5"
-                    Point2="-111.702570244076,-22.5"
-                    Point3="-111.702570244076,-18.5" />
+                    Point1="109.800005685367,60.2286725887551"
+                    Point2="113.800005685367,60.2286725887551"
+                    Point3="113.800005685367,64.2286725887551" />
                   <mssgle:LineSegment
-                    End="-111.702570244076,-5.12365595053103" />
+                    End="113.800005685367,112.95734517751" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2693,44 +2693,6 @@ INNER JOIN ventas v ON d.venta_id = v.venta_id</property>
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\D_PRODUCTO">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\D_PRODUCTO\OLE DB Source"
-          TopLeft="687.857142857143,100" />
-        <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\D_PRODUCTO\OLE DB Destination"
-          TopLeft="678.571428571429,181.428571428571" />
-        <EdgeLayout
-          Id="Package\D_PRODUCTO.Paths[OLE DB Source Output]"
-          TopLeft="765.814285714286,141.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.8285714285715"
-              Start="0,0"
-              End="0,32.3285714285715">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.3285714285715" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <TaskHost
     design-time-name="Package\D_CLIENTE">
     <LayoutInfo>
@@ -2781,6 +2743,91 @@ INNER JOIN ventas v ON d.venta_id = v.venta_id</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\D_CLIENTE\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\D_CLIENTE\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\D_PRODUCTO">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\D_PRODUCTO\OLE DB Source"
+          TopLeft="687.857142857143,100" />
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\D_PRODUCTO\OLE DB Destination"
+          TopLeft="678.571428571429,181.428571428571" />
+        <EdgeLayout
+          Id="Package\D_PRODUCTO.Paths[OLE DB Source Output]"
+          TopLeft="765.814285714286,141.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.8285714285715"
+              Start="0,0"
+              End="0,32.3285714285715">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.3285714285715" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\D_PRODUCTO\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\D_PRODUCTO\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\D_SUCURSAL">
     <LayoutInfo>
@@ -2819,82 +2866,27 @@ INNER JOIN ventas v ON d.venta_id = v.venta_id</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <TaskHost
-    design-time-name="Package\D_VENDEDOR">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\D_VENDEDOR\OLE DB Source"
-          TopLeft="316,52.5" />
-        <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\D_VENDEDOR\OLE DB Destination"
-          TopLeft="313.5,214.5" />
-        <EdgeLayout
-          Id="Package\D_VENDEDOR.Paths[OLE DB Source Output]"
-          TopLeft="397.35,94.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,120.4"
-              Start="0,0"
-              End="0,112.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,112.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\H_VENTAS">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\H_VENTAS\OLE DB Source"
-          TopLeft="946,185" />
-        <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\H_VENTAS\OLE DB Destination"
-          TopLeft="930,315" />
-        <EdgeLayout
-          Id="Package\H_VENTAS.Paths[OLE DB Source Output]"
-          TopLeft="1020.6,226.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,88.4"
-              Start="0,0"
-              End="0,80.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,80.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\D_SUCURSAL\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\D_SUCURSAL\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\D_TIEMPO">
     <LayoutInfo>
@@ -2934,83 +2926,7 @@ INNER JOIN ventas v ON d.venta_id = v.venta_id</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\D_SUCURSAL\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\D_SUCURSAL\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\D_PRODUCTO\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\D_PRODUCTO\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\D_VENDEDOR\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\D_VENDEDOR\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\D_CLIENTE\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\D_CLIENTE\OLE DB Destination">
+    design-time-name="Package\D_TIEMPO\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3030,8 +2946,105 @@ INNER JOIN ventas v ON d.venta_id = v.venta_id</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\D_VENDEDOR">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\D_VENDEDOR\OLE DB Source"
+          TopLeft="316,52.5" />
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\D_VENDEDOR\OLE DB Destination"
+          TopLeft="313.5,214.5" />
+        <EdgeLayout
+          Id="Package\D_VENDEDOR.Paths[OLE DB Source Output]"
+          TopLeft="397.35,94.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,120.4"
+              Start="0,0"
+              End="0,112.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,112.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\D_TIEMPO\OLE DB Destination">
+    design-time-name="Package\D_VENDEDOR\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\D_VENDEDOR\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\H_VENTAS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\H_VENTAS\OLE DB Destination"
+          TopLeft="930,315" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\H_VENTAS\OLE DB Source"
+          TopLeft="946,185" />
+        <EdgeLayout
+          Id="Package\H_VENTAS.Paths[OLE DB Source Output]"
+          TopLeft="1020.6,226.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,88.4"
+              Start="0,0"
+              End="0,80.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\H_VENTAS\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3048,19 +3061,6 @@ INNER JOIN ventas v ON d.venta_id = v.venta_id</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\H_VENTAS\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
