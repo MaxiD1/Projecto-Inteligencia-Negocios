@@ -2,15 +2,15 @@
 
 # To-do list
 
-• Script de creación del modelo dimensional.
+• ~~Script de creación del modelo dimensional.~~
 
-• Diagrama del modelo dimensional.
+• ~~Diagrama del modelo dimensional.~~
 
-• Proyecto de Visual Studio correspondiente al proceso ETL en SSIS.
+• ~~Proyecto de Visual Studio correspondiente al proceso ETL en SSIS.~~
 
-• Backup (.bak) de la base de datos dimensional con los datos cargados.
+• ~~Backup (.bak) de la base de datos dimensional con los datos cargados.~~
 
-• Presentación utilizada por el equipo para explicar y demostrar la solución.
+• ~~Presentación utilizada por el equipo para explicar y demostrar la solución.~~
 
 # Formato del informe
 
