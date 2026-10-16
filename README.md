@@ -1,33 +1,26 @@
-# Projecto-Inteligencia-Negocios
+# Proyecto-Inteligencia-Negocios
 
-# To-do list
+Este proyecto posee la siguiente estructura:
 
-• ~~Script de creación del modelo dimensional.~~
+```
+root/
+|-ETL/
+|  |-ETL_entrega/
+|-database/
+|     |-Albarran/
+|     |-backup/
+|     |-scripts/
+|-docs/
+|   |-Analisis/
+|   |-Caso/
+|   |-modelo-dimensional/
+|   |-presentacion/
+```
 
-• ~~Diagrama del modelo dimensional.~~
+```ETL``` Contiene todos los archivos relacionados con la ETL.
 
-• ~~Proyecto de Visual Studio correspondiente al proceso ETL en SSIS.~~
+```database``` Contiene los archivos de la base de datos del proyecto, incluyendo el archivo del proyecto creado en SQL Server Management Studio, respaldos de las bases de datos (tanto la original del caso como la creada por el script del modelo dimensional) y los scripts utilizados durante el proceso; por el momento solo contiene el script para crear la base de datos según nuestro modelo dimensional.
 
-• ~~Backup (.bak) de la base de datos dimensional con los datos cargados.~~
+Para utilizar el script hay que crear un proyecto nuevo, o cargar el proyecto en este repositorio, en SQL Server Management Studio, conectarse a una base de datos local y cargar el script en SSMS y ejecutarlor.
 
-• ~~Presentación utilizada por el equipo para explicar y demostrar la solución.~~
-
-# Formato del informe
-
-• Documento en formato digital.
-
-• Tamaño hoja carta, fuente Calibri, tamaño 11, interlineado 1,5.
-
-• Márgenes normales.
-
-• Páginas numeradas al lado inferior derecho.
-
-• Redactado en tercera persona.
-
-• No debe presentar faltas de redacción o de ortografías.
-
-• Debe contener las siguientes secciones: Portada, Índice, Introducción, Desarrollo, Conclusiones, Bibliografía.
-
-• La portada debe incluir los nombres y apellidos de los integrantes, asignatura, sección y nombre del profesor(a).
-
-• No debe superar las 50 páginas.
+```docs``` Contiene distintos documentos relacionados con el caso, desde las instrucciones del caso, la presentación de nuestra solución, un diagrama del modelo dimensional y archivos markdown con el análisis Kimball y los KPI.
